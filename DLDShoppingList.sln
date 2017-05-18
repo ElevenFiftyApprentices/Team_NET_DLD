@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLDShoppingList", "DLDShoppingList\DLDShoppingList.csproj", "{BCDB36A5-D1AA-45F7-8FA4-0E0836595D91}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BF4C0018-6D32-463F-B5BB-82CA46229022} = {BF4C0018-6D32-463F-B5BB-82CA46229022}
+		{8453D471-A3D4-46DE-8AA6-E00DC6E7DB15} = {8453D471-A3D4-46DE-8AA6-E00DC6E7DB15}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLDShoppingList.Models", "DLDShoppingList.Models\DLDShoppingList.Models.csproj", "{BF4C0018-6D32-463F-B5BB-82CA46229022}"
 EndProject

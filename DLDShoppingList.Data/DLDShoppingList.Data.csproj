@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{6F43C00B-0B3B-4255-BD18-3A92965D950D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>DLDShoppingList.Data</RootNamespace>
     <AssemblyName>DLDShoppingList.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -30,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -65,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLDShoppingList.Models\DLDShoppingList.Models.csproj">
+      <Project>{bf4c0018-6d32-463f-b5bb-82ca46229022}</Project>
+      <Name>DLDShoppingList.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -50,5 +50,24 @@ namespace DLDShoppingList.Models
 
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
         }
+
+
+    }
+
+    //MVC built in framework that allows us to accept user specific information, built on Entity framework, which builds databases for us.
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(iul => iul.UserId);
+        }
+    }
+    //This would be the method that sets up roles for users, IE Admins, Managers, Employees, etc.
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.RoleId);
+        }
     }
 }
