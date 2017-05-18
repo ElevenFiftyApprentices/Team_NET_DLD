@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using DLDShoppingList.Models;
 
 namespace DLDShoppingList.Data
 {
@@ -50,7 +51,6 @@ namespace DLDShoppingList.Data
 
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
         }
-
 
     }
 

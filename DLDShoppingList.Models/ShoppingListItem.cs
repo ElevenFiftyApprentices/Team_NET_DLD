@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLDShoppingList.Data
+namespace DLDShoppingList.Models
 {
     public enum Priority
     {
@@ -18,6 +19,7 @@ namespace DLDShoppingList.Data
     }
     class ShoppingListItem
     {
+        [Key]
         public int Id { get; set; }
         public int ShoppingListId { get; set; }
         public string Contents { get; set; }

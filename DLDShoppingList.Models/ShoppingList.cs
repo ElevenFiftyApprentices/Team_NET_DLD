@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLDShoppingList.Data
+namespace DLDShoppingList.Models
+
 {
     public class ShoppingList
     {
