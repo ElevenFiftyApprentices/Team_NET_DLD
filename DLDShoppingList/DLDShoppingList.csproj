@@ -200,7 +200,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -283,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DLDShoppingList.Data\DLDShoppingList.Data.csproj">
+<<<<<<< HEAD
       <Project>{6F43C00B-0B3B-4255-BD18-3A92965D950D}</Project>
       <Name>DLDShoppingList.Data</Name>
     </ProjectReference>
@@ -292,6 +292,12 @@
       <DependentUpon>201705172015599_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+=======
+      <Project>{6f43c00b-0b3b-4255-bd18-3a92965d950d}</Project>
+      <Name>DLDShoppingList.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+>>>>>>> b6d6a225575d2f882a81df8a74c524011b43332f
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
