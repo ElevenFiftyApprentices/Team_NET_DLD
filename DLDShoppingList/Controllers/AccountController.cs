@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DLDShoppingList.Models;
+using DLDShoppingList.Data;
 
 namespace DLDShoppingList.Controllers
 {

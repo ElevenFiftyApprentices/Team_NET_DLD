@@ -195,7 +195,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -275,6 +274,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DLDShoppingList.Data\DLDShoppingList.Data.csproj">
+      <Project>{8ddfe5ac-5bf1-4ca3-a8b2-7b0820906fd6}</Project>
+      <Name>DLDShoppingList.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLDShoppingList.Models\DLDShoppingList.Models.csproj">
+      <Project>{b468297c-0db7-4a0a-ba67-5e636dcd07c8}</Project>
+      <Name>DLDShoppingList.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DLDShoppingList.Service\DLDShoppingList.Service.csproj">
+      <Project>{540541b2-c36d-4da8-aee7-73054defc875}</Project>
+      <Name>DLDShoppingList.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
