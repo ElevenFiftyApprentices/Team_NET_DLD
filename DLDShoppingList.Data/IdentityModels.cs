@@ -52,7 +52,9 @@ namespace DLDShoppingList.Data
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
         }
 
-        object placeHolderVariable;
+        //object placeHolderVariable;
+        //object placeHolderVariable;
+        public System.Data.Entity.DbSet<DLDShoppingList.Models.ShoppingListItem> ShoppingListItems { get; set; }
     }
 
     //MVC built in framework that allows us to accept user specific information, built on Entity framework, which builds databases for us.
