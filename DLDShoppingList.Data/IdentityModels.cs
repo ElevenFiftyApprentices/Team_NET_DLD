@@ -52,6 +52,7 @@ namespace DLDShoppingList.Data
             modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration()).Add(new IdentityUserRoleConfiguration());
         }
 
+        object placeHolderVariable;
     }
 
     //MVC built in framework that allows us to accept user specific information, built on Entity framework, which builds databases for us.
