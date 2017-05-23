@@ -84,6 +84,10 @@
       <Project>{b468297c-0db7-4a0a-ba67-5e636dcd07c8}</Project>
       <Name>DLDShoppingList.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DLDShoppingList.Service\DLDShoppingList.Service.csproj">
+      <Project>{540541b2-c36d-4da8-aee7-73054defc875}</Project>
+      <Name>DLDShoppingList.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705221935486_ChangedCollectionName.resx">
