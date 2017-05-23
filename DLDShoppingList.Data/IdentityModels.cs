@@ -5,7 +5,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using DLDShoppingList.Models;
 
 namespace DLDShoppingList.Data
 {
@@ -41,8 +40,8 @@ namespace DLDShoppingList.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<ShoppingListContext> ShoppingList { get; set; }
-        public DbSet<ShoppingListItemContext> ShoppingListItem { get; set; }
+        public DbSet<ShoppingList> ShoppingList { get; set; }
+        public DbSet<ShoppingListItem> ShoppingListItem { get; set; }
 
         //Creating instances of the classes we created
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

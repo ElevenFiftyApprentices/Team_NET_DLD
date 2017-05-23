@@ -10,107 +10,112 @@ using DLDShoppingList.Data;
 
 namespace DLDShoppingList.Controllers
 {
-    public class ShoppingListController : Controller
+    public class ShoppingListItemController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: ShoppingList
+        // GET: ShoppingListItem
         public ActionResult Index()
         {
-            return View(db.ShoppingList.ToList());
+            var shoppingListItem = db.ShoppingListItem.Include(s => s.ShoppingList);
+            return View(shoppingListItem.ToList());
         }
 
-        // GET: ShoppingList/Details/5
+        // GET: ShoppingListItem/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingList shoppingList = db.ShoppingList.Find(id);
-            if (shoppingList == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingList);
+            return View(shoppingListItem);
         }
 
-        // GET: ShoppingList/Create
+        // GET: ShoppingListItem/Create
         public ActionResult Create()
         {
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name");
             return View();
         }
 
-        // POST: ShoppingList/Create
+        // POST: ShoppingListItem/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShoppingListID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingList shoppingList)
+        public ActionResult Create([Bind(Include = "ShoppingListItemID,ShoppingListID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItem shoppingListItem)
         {
             if (ModelState.IsValid)
             {
-                db.ShoppingList.Add(shoppingList);
+                db.ShoppingListItem.Add(shoppingListItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(shoppingList);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
-        // GET: ShoppingList/Edit/5
+        // GET: ShoppingListItem/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingList shoppingList = db.ShoppingList.Find(id);
-            if (shoppingList == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingList);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
-        // POST: ShoppingList/Edit/5
+        // POST: ShoppingListItem/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ShoppingListID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingList shoppingList)
+        public ActionResult Edit([Bind(Include = "ShoppingListItemID,ShoppingListID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItem shoppingListItem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shoppingList).State = EntityState.Modified;
+                db.Entry(shoppingListItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shoppingList);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
-        // GET: ShoppingList/Delete/5
+        // GET: ShoppingListItem/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingList shoppingList = db.ShoppingList.Find(id);
-            if (shoppingList == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingList);
+            return View(shoppingListItem);
         }
 
-        // POST: ShoppingList/Delete/5
+        // POST: ShoppingListItem/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShoppingList shoppingList = db.ShoppingList.Find(id);
-            db.ShoppingList.Remove(shoppingList);
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            db.ShoppingListItem.Remove(shoppingListItem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -54,9 +54,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201705221935486_ChangedCollectionName.cs" />
+    <Compile Include="Migrations\201705221935486_ChangedCollectionName.Designer.cs">
+      <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221937293_ChangedCollectionNameAgain.cs" />
+    <Compile Include="Migrations\201705221937293_ChangedCollectionNameAgain.Designer.cs">
+      <DependentUpon>201705221937293_ChangedCollectionNameAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221942023_ContextFix.cs" />
+    <Compile Include="Migrations\201705221942023_ContextFix.Designer.cs">
+      <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231416084_FixedModelError.cs" />
+    <Compile Include="Migrations\201705231416084_FixedModelError.Designer.cs">
+      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingListContext.cs" />
-    <Compile Include="ShoppingListItemContext.cs" />
+    <Compile Include="ShoppingList.cs" />
+    <Compile Include="ShoppingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -67,6 +84,20 @@
       <Project>{b468297c-0db7-4a0a-ba67-5e636dcd07c8}</Project>
       <Name>DLDShoppingList.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705221935486_ChangedCollectionName.resx">
+      <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221937293_ChangedCollectionNameAgain.resx">
+      <DependentUpon>201705221937293_ChangedCollectionNameAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221942023_ContextFix.resx">
+      <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231416084_FixedModelError.resx">
+      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

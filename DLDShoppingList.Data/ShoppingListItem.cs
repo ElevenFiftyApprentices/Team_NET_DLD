@@ -2,31 +2,36 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLDShoppingList.Models
+namespace DLDShoppingList.Data
 {
+
     public enum Priority
     {
         [Description("It can wait")]
         canWait,
-        [Description("Need this soon")]
+        [Description("Need Soon")]
         needSoon,
         [Description("Completely Out")]
-        Critical
+        empty
+
     }
-    class ShoppingListItem
+    public class ShoppingListItem
     {
-        [Key]
-        public int Id { get; set; }
-        public int ShoppingListId { get; set; }
+        public int ShoppingListItemID { get; set; }
+
+        public int ShoppingListID { get; set; }
         public string Contents { get; set; }
         public string Note { get; set; }
         public Priority Priority { get; set; }
         public bool IsChecked { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }
+
+        public ShoppingList ShoppingList { get; set; }
     }
 }
