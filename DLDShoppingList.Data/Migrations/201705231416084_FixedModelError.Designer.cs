@@ -7,13 +7,13 @@ namespace DLDShoppingList.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class RemoveUserIDField : IMigrationMetadata
+    public sealed partial class FixedModelError : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveUserIDField));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixedModelError));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705221933556_RemoveUserIDField"; }
+            get { return "201705231416084_FixedModelError"; }
         }
         
         string IMigrationMetadata.Source

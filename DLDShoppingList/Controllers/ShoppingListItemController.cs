@@ -17,7 +17,8 @@ namespace DLDShoppingList.Controllers
         // GET: ShoppingListItem
         public ActionResult Index()
         {
-            return View(db.ShoppingListItem.ToList());
+            var shoppingListItem = db.ShoppingListItem.Include(s => s.ShoppingList);
+            return View(shoppingListItem.ToList());
         }
 
         // GET: ShoppingListItem/Details/5
@@ -27,17 +28,18 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListItemContext shoppingListItemContext = db.ShoppingListItem.Find(id);
-            if (shoppingListItemContext == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListItemContext);
+            return View(shoppingListItem);
         }
 
         // GET: ShoppingListItem/Create
         public ActionResult Create()
         {
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name");
             return View();
         }
 
@@ -46,17 +48,17 @@ namespace DLDShoppingList.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShoppingListItemContextID,ShoppingListContextID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItemContext shoppingListItemContext)
+        public ActionResult Create([Bind(Include = "ShoppingListItemID,ShoppingListID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItem shoppingListItem)
         {
             if (ModelState.IsValid)
             {
-                db.ShoppingListItem.Add(shoppingListItemContext);
+                db.ShoppingListItem.Add(shoppingListItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ShoppingListContextID = new SelectList(db.ShoppingList, "ShoppingListContextID", "Name", shoppingListItemContext.ShoppingListContextID);
-            return View(shoppingListItemContext);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
         // GET: ShoppingListItem/Edit/5
@@ -66,12 +68,13 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListItemContext shoppingListItemContext = db.ShoppingListItem.Find(id);
-            if (shoppingListItemContext == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListItemContext);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
         // POST: ShoppingListItem/Edit/5
@@ -79,15 +82,16 @@ namespace DLDShoppingList.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ShoppingListItemContextID,ShoppingListContextID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItemContext shoppingListItemContext)
+        public ActionResult Edit([Bind(Include = "ShoppingListItemID,ShoppingListID,Contents,Note,Priority,IsChecked,CreatedUtc,ModifiedUtc")] ShoppingListItem shoppingListItem)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shoppingListItemContext).State = EntityState.Modified;
+                db.Entry(shoppingListItem).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shoppingListItemContext);
+            ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
+            return View(shoppingListItem);
         }
 
         // GET: ShoppingListItem/Delete/5
@@ -97,12 +101,12 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListItemContext shoppingListItemContext = db.ShoppingListItem.Find(id);
-            if (shoppingListItemContext == null)
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            if (shoppingListItem == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListItemContext);
+            return View(shoppingListItem);
         }
 
         // POST: ShoppingListItem/Delete/5
@@ -110,8 +114,8 @@ namespace DLDShoppingList.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShoppingListItemContext shoppingListItemContext = db.ShoppingListItem.Find(id);
-            db.ShoppingListItem.Remove(shoppingListItemContext);
+            ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+            db.ShoppingListItem.Remove(shoppingListItem);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

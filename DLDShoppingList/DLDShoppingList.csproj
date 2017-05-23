@@ -258,11 +258,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ShoppingListItemContexts\Create.cshtml" />
-    <Content Include="Views\ShoppingListItemContexts\Delete.cshtml" />
-    <Content Include="Views\ShoppingListItemContexts\Details.cshtml" />
-    <Content Include="Views\ShoppingListItemContexts\Edit.cshtml" />
-    <Content Include="Views\ShoppingListItemContexts\Index.cshtml" />
     <Content Include="Views\ShoppingList\Create.cshtml" />
     <Content Include="Views\ShoppingList\Delete.cshtml" />
     <Content Include="Views\ShoppingList\Details.cshtml" />

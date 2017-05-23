@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DLDShoppingList.Data.ShoppingListContext>
+﻿@model IEnumerable<DLDShoppingList.Data.ShoppingList>
 
 @{
     ViewBag.Title = "Index";
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.ModifiedUtc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ShoppingListContextID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ShoppingListContextID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ShoppingListContextID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ShoppingListID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ShoppingListID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ShoppingListID })
         </td>
     </tr>
 }

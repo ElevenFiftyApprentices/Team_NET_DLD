@@ -1,4 +1,4 @@
-﻿@model DLDShoppingList.Data.ShoppingListItemContext
+﻿@model DLDShoppingList.Data.ShoppingListItem
 
 @{
     ViewBag.Title = "Details";
@@ -7,15 +7,15 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ShoppingListItemContext</h4>
+    <h4>ShoppingListItem</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ShoppingListContextID)
+            @Html.DisplayNameFor(model => model.ShoppingList.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ShoppingListContextID)
+            @Html.DisplayFor(model => model.ShoppingList.Name)
         </dd>
 
         <dt>
@@ -69,6 +69,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ShoppingListItemContextID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShoppingListItemID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

@@ -54,18 +54,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201705221900261_InitialCreate.cs" />
-    <Compile Include="Migrations\201705221900261_InitialCreate.Designer.cs">
-      <DependentUpon>201705221900261_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221931070_Initial.cs" />
-    <Compile Include="Migrations\201705221931070_Initial.Designer.cs">
-      <DependentUpon>201705221931070_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221933556_RemoveUserIDField.cs" />
-    <Compile Include="Migrations\201705221933556_RemoveUserIDField.Designer.cs">
-      <DependentUpon>201705221933556_RemoveUserIDField.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201705221935486_ChangedCollectionName.cs" />
     <Compile Include="Migrations\201705221935486_ChangedCollectionName.Designer.cs">
       <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
@@ -78,10 +66,14 @@
     <Compile Include="Migrations\201705221942023_ContextFix.Designer.cs">
       <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705231416084_FixedModelError.cs" />
+    <Compile Include="Migrations\201705231416084_FixedModelError.Designer.cs">
+      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingListContext.cs" />
-    <Compile Include="ShoppingListItemContext.cs" />
+    <Compile Include="ShoppingList.cs" />
+    <Compile Include="ShoppingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,15 +86,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705221900261_InitialCreate.resx">
-      <DependentUpon>201705221900261_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221931070_Initial.resx">
-      <DependentUpon>201705221931070_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221933556_RemoveUserIDField.resx">
-      <DependentUpon>201705221933556_RemoveUserIDField.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221935486_ChangedCollectionName.resx">
       <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221942023_ContextFix.resx">
       <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231416084_FixedModelError.resx">
+      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

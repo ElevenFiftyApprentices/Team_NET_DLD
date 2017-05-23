@@ -27,12 +27,12 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListContext shoppingListContext = db.ShoppingList.Find(id);
-            if (shoppingListContext == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListContext);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Create
@@ -46,16 +46,16 @@ namespace DLDShoppingList.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShoppingListContextID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingListContext shoppingListContext)
+        public ActionResult Create([Bind(Include = "ShoppingListID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingList shoppingList)
         {
             if (ModelState.IsValid)
             {
-                db.ShoppingList.Add(shoppingListContext);
+                db.ShoppingList.Add(shoppingList);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(shoppingListContext);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Edit/5
@@ -65,12 +65,12 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListContext shoppingListContext = db.ShoppingList.Find(id);
-            if (shoppingListContext == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListContext);
+            return View(shoppingList);
         }
 
         // POST: ShoppingList/Edit/5
@@ -78,15 +78,15 @@ namespace DLDShoppingList.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ShoppingListContextID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingListContext shoppingListContext)
+        public ActionResult Edit([Bind(Include = "ShoppingListID,Name,Color,CreatedUtc,ModifiedUtc")] ShoppingList shoppingList)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shoppingListContext).State = EntityState.Modified;
+                db.Entry(shoppingList).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(shoppingListContext);
+            return View(shoppingList);
         }
 
         // GET: ShoppingList/Delete/5
@@ -96,12 +96,12 @@ namespace DLDShoppingList.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ShoppingListContext shoppingListContext = db.ShoppingList.Find(id);
-            if (shoppingListContext == null)
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            if (shoppingList == null)
             {
                 return HttpNotFound();
             }
-            return View(shoppingListContext);
+            return View(shoppingList);
         }
 
         // POST: ShoppingList/Delete/5
@@ -109,8 +109,8 @@ namespace DLDShoppingList.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ShoppingListContext shoppingListContext = db.ShoppingList.Find(id);
-            db.ShoppingList.Remove(shoppingListContext);
+            ShoppingList shoppingList = db.ShoppingList.Find(id);
+            db.ShoppingList.Remove(shoppingList);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

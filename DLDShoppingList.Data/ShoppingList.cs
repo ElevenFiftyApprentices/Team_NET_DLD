@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLDShoppingList.Models
-
+namespace DLDShoppingList.Data
 {
     public class ShoppingList
     {
@@ -15,6 +16,6 @@ namespace DLDShoppingList.Models
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }
 
-        public ICollection<ShoppingListItem> ShoppingListItems { get; set; }
+        public virtual ICollection<ShoppingListItem> ShoppingListItems { get; set; }
     }
 }
