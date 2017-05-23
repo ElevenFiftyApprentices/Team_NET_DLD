@@ -192,6 +192,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShoppingListController.cs" />
+    <Compile Include="Controllers\ShoppingListItemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -257,11 +258,21 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\ShoppingListItemContexts\Create.cshtml" />
+    <Content Include="Views\ShoppingListItemContexts\Delete.cshtml" />
+    <Content Include="Views\ShoppingListItemContexts\Details.cshtml" />
+    <Content Include="Views\ShoppingListItemContexts\Edit.cshtml" />
+    <Content Include="Views\ShoppingListItemContexts\Index.cshtml" />
     <Content Include="Views\ShoppingList\Create.cshtml" />
     <Content Include="Views\ShoppingList\Delete.cshtml" />
     <Content Include="Views\ShoppingList\Details.cshtml" />
     <Content Include="Views\ShoppingList\Edit.cshtml" />
     <Content Include="Views\ShoppingList\Index.cshtml" />
+    <Content Include="Views\ShoppingListItem\Create.cshtml" />
+    <Content Include="Views\ShoppingListItem\Delete.cshtml" />
+    <Content Include="Views\ShoppingListItem\Details.cshtml" />
+    <Content Include="Views\ShoppingListItem\Edit.cshtml" />
+    <Content Include="Views\ShoppingListItem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

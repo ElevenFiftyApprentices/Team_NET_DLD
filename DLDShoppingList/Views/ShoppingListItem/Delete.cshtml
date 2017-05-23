@@ -1,4 +1,4 @@
-﻿@model DLDShoppingList.Data.ShoppingListContext
+﻿@model DLDShoppingList.Data.ShoppingListItemContext
 
 @{
     ViewBag.Title = "Delete";
@@ -8,23 +8,47 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>ShoppingListContext</h4>
+    <h4>ShoppingListItemContext</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.ShoppingListContextID)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.ShoppingListContextID)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Color)
+            @Html.DisplayNameFor(model => model.Contents)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Color)
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsChecked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsChecked)
         </dd>
 
         <dt>

@@ -17,10 +17,10 @@ namespace DLDShoppingList.Models
         [Description("Completely Out")]
         Critical
     }
-    class ShoppingListItem
+    public class ShoppingListItem
     {
         [Key]
-        public int Id { get; set; }
+        public int ShoppingListItemID { get; set; }
         public int ShoppingListId { get; set; }
         public string Contents { get; set; }
         public string Note { get; set; }
