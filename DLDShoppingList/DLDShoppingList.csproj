@@ -271,6 +271,7 @@
     <Content Include="Views\ShoppingListItem\Edit.cshtml" />
     <Content Include="Views\ShoppingListItem\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
