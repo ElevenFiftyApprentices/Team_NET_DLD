@@ -11,9 +11,15 @@ namespace DLDShoppingList.Data
     public class ShoppingList
     {
         public int ShoppingListID { get; set; }
+
+        [Display(Name = "List Name")]
         public string Name { get; set; }
         public string Color { get; set; }
+
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
 
         public virtual ICollection<ShoppingListItem> ShoppingListItems { get; set; }

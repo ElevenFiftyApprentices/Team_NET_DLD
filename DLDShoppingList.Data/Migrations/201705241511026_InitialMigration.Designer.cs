@@ -7,13 +7,13 @@ namespace DLDShoppingList.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ChangedCollectionName : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedCollectionName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705221935486_ChangedCollectionName"; }
+            get { return "201705241511026_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

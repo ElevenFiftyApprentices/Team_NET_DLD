@@ -54,21 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201705221935486_ChangedCollectionName.cs" />
-    <Compile Include="Migrations\201705221935486_ChangedCollectionName.Designer.cs">
-      <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221937293_ChangedCollectionNameAgain.cs" />
-    <Compile Include="Migrations\201705221937293_ChangedCollectionNameAgain.Designer.cs">
-      <DependentUpon>201705221937293_ChangedCollectionNameAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705221942023_ContextFix.cs" />
-    <Compile Include="Migrations\201705221942023_ContextFix.Designer.cs">
-      <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705231416084_FixedModelError.cs" />
-    <Compile Include="Migrations\201705231416084_FixedModelError.Designer.cs">
-      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
+    <Compile Include="Migrations\201705241511026_InitialMigration.cs" />
+    <Compile Include="Migrations\201705241511026_InitialMigration.Designer.cs">
+      <DependentUpon>201705241511026_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,17 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705221935486_ChangedCollectionName.resx">
-      <DependentUpon>201705221935486_ChangedCollectionName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221937293_ChangedCollectionNameAgain.resx">
-      <DependentUpon>201705221937293_ChangedCollectionNameAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705221942023_ContextFix.resx">
-      <DependentUpon>201705221942023_ContextFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705231416084_FixedModelError.resx">
-      <DependentUpon>201705231416084_FixedModelError.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705241511026_InitialMigration.resx">
+      <DependentUpon>201705241511026_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

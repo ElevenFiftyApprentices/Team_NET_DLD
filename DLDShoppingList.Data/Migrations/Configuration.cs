@@ -10,7 +10,6 @@ namespace DLDShoppingList.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DLDShoppingList.Data.ApplicationDbContext";
         }
 
         protected override void Seed(DLDShoppingList.Data.ApplicationDbContext context)

@@ -12,11 +12,11 @@ namespace DLDShoppingList.Data
 
     public enum Priority
     {
-        [Description("It can wait")]
+        [Display(Name="It can wait")]
         canWait,
-        [Description("Need Soon")]
+        [Display(Name="Need Soon")]
         needSoon,
-        [Description("Completely Out")]
+        [Display(Name="Completely Out")]
         empty
 
     }
@@ -28,8 +28,14 @@ namespace DLDShoppingList.Data
         public string Contents { get; set; }
         public string Note { get; set; }
         public Priority Priority { get; set; }
+
+        [Display(Name = "Checked")]
         public bool IsChecked { get; set; }
+
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
 
         public ShoppingList ShoppingList { get; set; }
