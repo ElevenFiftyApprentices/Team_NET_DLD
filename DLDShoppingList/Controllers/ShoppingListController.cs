@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DLDShoppingList.Data;
+using DLDShoppingList.Models;
 
 namespace DLDShoppingList.Controllers
 {
@@ -20,6 +21,7 @@ namespace DLDShoppingList.Controllers
             return View(db.ShoppingList.ToList());
         }
 
+        // show list items that have the same ID
         // GET: ShoppingList/Details/5
         public ActionResult Details(int? id)
         {

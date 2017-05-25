@@ -1,4 +1,7 @@
-﻿@model IEnumerable<DLDShoppingList.Data.ShoppingList>
+﻿@using System.ComponentModel.DataAnnotations
+@using DLDShoppingList.Controllers
+@using DLDShoppingList.Data
+@model IEnumerable<DLDShoppingList.Data.ShoppingList>
 
 @{
     ViewBag.Title = "Index";
@@ -42,14 +45,15 @@
                 @Html.DisplayFor(modelItem => item.ModifiedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ShoppingListID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ShoppingListID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ShoppingListID })
+                @Html.ActionLink("Show", "Index", "ShoppingListItem", 
+                    new { id = item.ShoppingListID, shoppingListName = item.Name }, 
+                        new { @class = "btn btn-default btn-xs" })
+                @Html.ActionLink("Edit", "Edit", new {id = item.ShoppingListID}) |
+                @Html.ActionLink("Details", "Details", new {id = item.ShoppingListID}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.ShoppingListID})
             </td>
         </tr>
     }
 
 </table>
-
-
 
