@@ -48,8 +48,9 @@ namespace DLDShoppingList.Controllers
 
             ViewBag.Name = id;
             ViewBag.ListTitle = db.ShoppingList.Find(id).Name;
-            return View(db.ShoppingListItem.Where(s => s.ShoppingListItemID == id));
+            return View(db.ShoppingListItem.Where(s => s.ShoppingListID == id));
             //I am trying to return all items which are associated with the same ListName
+            //code does not sort by anything
         }
 
 
