@@ -1,7 +1,128 @@
-﻿
-@{
-    ViewBag.Title = "ViewItem";
-}
+﻿@model IEnumerable<DLDShoppingList.Data.ShoppingList>
 
-<h2>ViewItem</h2>
+
+
+<h2>@ViewBag.ListTitle Shopping List</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "CreateItem", new {id = ViewBag.ShoppingListId})
+    
+</p>*@
+<table class="table">
+    <tr>
+        <!--Commenting out the ShoppingListID
+        <th>
+            @Html.DisplayNameFor(model => model.ShoppingListID)
+        </th>
+        <<<<<<< HEAD
+        =======
+        End Commenting out ShoppingListID-->
+
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsChecked)
+        </th>*@
+
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShoppingListItems)
+        </th>
+        <!--Commenting out the CreatedUtc and ModifiedUtc
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </th>
+        End Commenting out the CreatedUtc and ModifiedUtc-->
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr style="color: @ViewBag.ShoppingListColor">
+            <!--Commenting out the ShoppingListID
+            <td>
+                @Html.DisplayFor(modelItem => item.ShoppingListID)
+            </td> End commenting out ShoppingListID-->
+            <!--Adding ShoppingListId to IsChecked-->
+            @*<td>
+
+                @Html.CheckBoxFor(modelItem => item.IsChecked, new { id = item.ShoppingListItemId, @class = "itemCheckBoxes" })
+                
+            </td>*@
+        
+            <!--Chris' checkbox
+            <td>
+                <input type="checkbox" name="checked" value="isChecked" />
+            </td>-->
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShoppingListItems)
+            </td>
+            <!--Commenting out the CreatedUtc and ModifiedUtc
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+            </td>
+            End Commenting out ShoppingListID-->
+<!--Commenting out the Edit and Details Button
+@* @Html.ActionLink("Edit", "Edit", new { id=item.ShoppingListItemID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ShoppingListItemId })
+    *@        
+    End Commenting out the Edit and Details Buttons-->
+            @*<td>
+                
+                @Html.ActionLink("Delete", "Delete", "ShoppingListItem", new { id = item.ShoppingListItemID }, new {@class="btn btn-default"})
+                
+            </td>*@
+        </tr>
+    }
+
+</table>
+
+@section scripts {
+    <script language="javascript" text="text/javascript">
+        $(document)
+            .ready(function() {
+                $("input.itemCheckBoxes") //css selector to find elements in page
+                    .css({ "cursor": "pointer" })
+                    .click(function(e) {
+                        var target = $(e.target);
+                        var shoppingListItemId = target.attr("id");
+
+                        $.ajax({
+                                method: "POST",
+                                url: "/shoppinglist/updatecheckbox",
+                                data: {
+                                    ShoppingListItemId: shoppingListItemId,
+                                    IsChecked: target.is(":checked")
+                                }
+                            })
+                            .done(function(r) {
+                                console.log("finished setting IsChecked - " + r);
+                            })
+                            .fail(function(r) {
+                                alert("Failed to change status");
+                            });
+
+
+                    });
+            });
+
+    </script>
+}
 

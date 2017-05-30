@@ -44,9 +44,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ModifiedUtc)
             </td>
-            <td>
-                @Html.ActionLink("Show", "Index", "ShoppingListItem", 
-                    new { id = item.Name, shoppingListName = item.Name }, 
+            <td>@*create link to display all items with the same ListName
+                    sort by ID? Name?*@
+                @Html.ActionLink("Show", "ViewItem", "ShoppingList", 
+                    new { id = item.ShoppingListID, shoppingListName = item.ShoppingListID }, 
                         new { @class = "btn btn-default btn-xs" })
                 @Html.ActionLink("Edit", "Edit", new {id = item.ShoppingListID}) |
                 @Html.ActionLink("Details", "Details", new {id = item.ShoppingListID}) |
