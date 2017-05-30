@@ -37,6 +37,23 @@ namespace DLDShoppingList.Controllers
             return View(shoppingList);
         }
 
+        //// GET: ViewItem/View
+        public ActionResult ViewItem(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.Name = id;
+            ViewBag.ListTitle = db.ShoppingList.Find(id).Name;
+            return View(db.ShoppingListItem.Where(s => s.ShoppingListItemID == id));
+            //I am trying to return all items which are associated with the same ListName
+        }
+
+
+
         // GET: ShoppingList/Create
         public ActionResult Create()
         {

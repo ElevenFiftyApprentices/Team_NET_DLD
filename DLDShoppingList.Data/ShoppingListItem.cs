@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DLDShoppingList.Data;
 
 namespace DLDShoppingList.Data
 {
@@ -24,6 +25,7 @@ namespace DLDShoppingList.Data
     {
         public int ShoppingListItemID { get; set; }
 
+        
         public int ShoppingListID { get; set; }
         public string Contents { get; set; }
         public string Note { get; set; }
@@ -38,6 +40,8 @@ namespace DLDShoppingList.Data
         [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
 
-        public ShoppingList ShoppingList { get; set; }
+        public virtual ShoppingList ShoppingList { get; set; }
+
+
     }
 }
