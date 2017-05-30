@@ -115,9 +115,12 @@ namespace DLDShoppingList.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+
+
+
             db.ShoppingListItem.Remove(shoppingListItem);
             db.SaveChanges();
-            return RedirectToAction("Index", "ShoppingList");
+            return RedirectToAction("ViewItem", "ShoppingList", new {id = shoppingListItem.ShoppingListID});
     }
 
         protected override void Dispose(bool disposing)

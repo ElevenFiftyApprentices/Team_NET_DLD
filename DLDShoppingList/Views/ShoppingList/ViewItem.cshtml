@@ -5,6 +5,7 @@
 
 <h2>ViewItem</h2>
 
+
 <table class="table table-striped table-hover ">
     <tr>
         <th>
@@ -41,8 +42,8 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @*@Html.ActionLink("Delete", "Delete", new { id=item.ShoppingListItemID })*@
                 @Html.ActionLink("Delete", "Delete", "ShoppingListItem", new { id=item.ShoppingListItemID }, null)
+                @Html.ActionLink("Back to all Lists", "Index")
             </td>
         </tr>
     }
