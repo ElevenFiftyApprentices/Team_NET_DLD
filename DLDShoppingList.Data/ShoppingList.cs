@@ -10,6 +10,7 @@ namespace DLDShoppingList.Data
 {
     public class ShoppingList
     {
+        [Key]
         public int ShoppingListID { get; set; }
 
         [Display(Name = "List Name")]
