@@ -41,16 +41,36 @@
             @Html.DisplayFor(modelItem => item.ShoppingList.Name)
         </td>
         <td>
+            @if (item.IsChecked == false)
+            {
             @Html.DisplayFor(modelItem => item.Contents)
+            }
+            else
+            {
+                <s>@Html.DisplayFor(modelItem => item.Contents)</s>
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Note)
+            @if (item.IsChecked == false)
+            {
+                @Html.DisplayFor(modelItem => item.Note)
+            }
+            else
+            {
+                <s>@Html.DisplayFor(modelItem => item.Note)</s>
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Priority)
-        </td>
+            @if (item.IsChecked == false)
+            {
+                @Html.DisplayFor(modelItem => item.Priority)
+            }
+            else
+            {
+                <s>@Html.DisplayFor(modelItem => item.Priority)</s>
+            }        </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsChecked)
+            @Html.CheckBoxFor(modelItem => item.IsChecked)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)
@@ -67,3 +87,4 @@
 }
 
 </table>
+
