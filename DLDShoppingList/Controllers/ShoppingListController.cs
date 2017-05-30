@@ -38,6 +38,7 @@ namespace DLDShoppingList.Controllers
         }
 
         //// GET: ViewItem/View
+        /// This function displays all items in a shopping list with slID = id passed in
         public ActionResult ViewItem(int? id)
         {
 
@@ -48,9 +49,7 @@ namespace DLDShoppingList.Controllers
 
             ViewBag.ShoppingListID = id;
             ViewBag.ListTitle = db.ShoppingList.Find(id).Name;
-            return View(db.ShoppingListItem.Where(s => s.ShoppingListID == id));
-
-            //I am trying to return all items which are associated with the same ListName
+            return View(db.ShoppingListItem.Where(s => s.ShoppingListID == id).ToList());
 
         }
 
