@@ -50,7 +50,10 @@
             @Html.DisplayFor(modelItem => item.Priority)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsChecked)
+            @Html.CheckBoxFor(modelItem => item.IsChecked)
+        </td>
+        <td>
+           
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedUtc)

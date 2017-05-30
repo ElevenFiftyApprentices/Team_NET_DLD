@@ -56,7 +56,7 @@ namespace DLDShoppingList.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            //removed .ShoppingListID at the end of following line
             ViewBag.ShoppingListID = new SelectList(db.ShoppingList, "ShoppingListID", "Name", shoppingListItem.ShoppingListID);
             return View(shoppingListItem);
         }
@@ -115,10 +115,13 @@ namespace DLDShoppingList.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ShoppingListItem shoppingListItem = db.ShoppingListItem.Find(id);
+
+
+
             db.ShoppingListItem.Remove(shoppingListItem);
             db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+            return RedirectToAction("ViewItem", "ShoppingList", new {id = shoppingListItem.ShoppingListID});
+    }
 
         protected override void Dispose(bool disposing)
         {
@@ -128,5 +131,6 @@ namespace DLDShoppingList.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
