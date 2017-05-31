@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DLDShoppingList.Data;
+using DLDShoppingList.Models;
 
 namespace DLDShoppingList.Controllers
 {
@@ -20,6 +21,7 @@ namespace DLDShoppingList.Controllers
             return View(db.ShoppingList.ToList());
         }
 
+        // show list items that have the same ID
         // GET: ShoppingList/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,6 +36,24 @@ namespace DLDShoppingList.Controllers
             }
             return View(shoppingList);
         }
+
+        //// GET: ViewItem/View
+        /// This function displays all items in a shopping list with slID = id passed in
+        public ActionResult ViewItem(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ViewBag.ShoppingListID = id;
+            ViewBag.ListTitle = db.ShoppingList.Find(id).Name;
+            return View(db.ShoppingListItem.Where(s => s.ShoppingListID == id).ToList());
+
+        }
+
+
 
         // GET: ShoppingList/Create
         public ActionResult Create()
